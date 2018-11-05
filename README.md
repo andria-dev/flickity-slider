@@ -19,3 +19,16 @@ $ polymer test
 ```
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
+
+<custom-element-demo>
+  <template>
+    <link rel='stylesheet' href='./node_modules/flickity/dist/flickity.min.css'>
+    <script type='module' src='./flickity-slider.js'></script>
+    <flickity-slider>
+      <img src='https://picsum.photos/800/500/?random'>
+      <img src='https://picsum.photos/800/500/?random'>
+      <img src='https://picsum.photos/800/500/?random'>
+    </flickity-slider>
+  </template>
+</custom-element-demo>
