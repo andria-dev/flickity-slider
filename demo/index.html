@@ -17,6 +17,11 @@
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+        img {
+          width: 20rem;
+          height: 10rem;
+          object-fit: cover;
+        }
       </style>
     </custom-style>
   </head>
@@ -25,7 +30,11 @@
       <h3>Basic flickity-slider demo</h3>
       <demo-snippet>
         <template>
-          <flickity-slider></flickity-slider>
+          <flickity-slider>
+            <img src='https://picsum.photos/800/500/?random' />
+            <img src='https://picsum.photos/800/500/?random' />
+            <img src='https://picsum.photos/800/500/?random' />
+          </flickity-slider>
         </template>
       </demo-snippet>
     </div>

@@ -4,7 +4,10 @@
   "main": "flickity-slider.js",
   "dependencies": {
     "@polymer/lit-element": "^0.6.2",
-    "flickity": "^2.1.2"
+    "@polymer/polymer": "^3.1.0",
+    "@polymer/sinonjs": "^1.17.1",
+    "flickity": "^2.1.2",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
