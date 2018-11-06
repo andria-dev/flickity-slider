@@ -39,15 +39,16 @@ class FlickitySlider extends LitElement {
     this._flickity = new Flickity(this, this.options);
 
     if (this.parallax !== false) {
-
       this._flickity.on('scroll', () => {
-        // const imgs = 
+        const imageList = this.parallax
+          ? this.children[0].children[0].querySelectorAll(this.parallax)
+          : this.children[0].children[0].children
 
         this._flickity.slides.forEach((slide, index) => {
-          console.log({ slide })
-          // const img = imgs[index];
-          // const x = (slide.target + this._flickity.x) * -1/3;
-          // img.style.transform = `translateX(${x}px)`;
+          const image = imageList[index];
+          const x = (slide.target + this._flickity.x) * -1/3;
+
+          image.style.transform = `translateX(${x}px)`;
         });
       });
     }
