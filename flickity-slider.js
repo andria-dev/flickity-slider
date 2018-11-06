@@ -40,6 +40,16 @@ class FlickitySlider extends LitElement {
   }
 };
 
+fetch('/node_modules/flickity/dist/flickity.min.css')
+  .then(res => res.text())
+  .then(text => document.head.innerHTML += `
+    <style>
+      ${text}
 
+      flickity-slider {
+        display: block;
+      }
+    </style>
+  `)
 
 window.customElements.define('flickity-slider', FlickitySlider);
