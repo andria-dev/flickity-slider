@@ -1,42 +1,63 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>flickity-slider demo</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <title>flickity-slider demo</title>
 
-    <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+  </script>
+
+  <script type="module" src="../flickity-slider.js"></script>
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      flickity-slider {
+        margin-bottom: 2rem;
+      }
+      img {
+        height: 20rem;
+      }
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic flickity-slider demo</h3>
+    <p>Content inside of <code>&lt;flickity-slider&gt;</code> must have a height.</p>
+    <demo-snippet>
+      <template>
+        <flickity-slider .options="${{freeScroll: true}}">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+        </flickity-slider>
+      </template>
+    </demo-snippet>
+    <script type='module'>
+      import {render, html} from '/node_modules/lit-html/lit-html.js'
+      render(html`
+        <flickity-slider .options="${{freeScroll: true}}">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+        </flickity-slider>
+      `, document.querySelector('demo-snippet'))
     </script>
+  </div>
+</body>
 
-    <script type="module" src="../flickity-slider.js"></script>
-
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-        img {
-          width: 20rem;
-          height: 10rem;
-          object-fit: cover;
-        }
-      </style>
-    </custom-style>
-  </head>
-  <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic flickity-slider demo</h3>
-      <demo-snippet>
-        <template>
-          <flickity-slider>
-            <img src='https://picsum.photos/800/500/?random' />
-            <img src='https://picsum.photos/800/500/?random' />
-            <img src='https://picsum.photos/800/500/?random' />
-          </flickity-slider>
-        </template>
-      </demo-snippet>
-    </div>
-  </body>
 </html>
