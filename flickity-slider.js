@@ -38,6 +38,8 @@ class FlickitySlider extends LitElement {
 
     this._flickity = new Flickity(this, this.options);
 
+    setTimeout(() => this._flickity.resize())
+
     if (this.parallax !== false) {
       this._flickity.on('scroll', () => {
         const imageList = this.parallax
