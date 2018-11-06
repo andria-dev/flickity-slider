@@ -19,11 +19,13 @@ class FlickitySlider extends LitElement {
       prevNextButtons: true,
       pageDots: true
     }
+    this.parallax = false
   }
 
   static get properties() {
     return {
-      options: Object
+      options: Object,
+      parallax: Boolean
     };
   }
 
@@ -33,7 +35,29 @@ class FlickitySlider extends LitElement {
 
   connectedCallback(...args) {
     super.connectedCallback(...args);
+
     this._flickity = new Flickity(this, this.options);
+
+    if (this.parallax) {
+
+      this._flickity.on('scroll', () => {
+        // const imgs = 
+
+        this._flickity.slides.forEach((slide, index) => {
+          console.log({ slide })
+          // const img = imgs[index];
+          // const x = (slide.target + this._flickity.x) * -1/3;
+          // img.style.transform = `translateX(${x}px)`;
+        });
+      });
+    } else {
+      console.log(this.parallax, this)
+    }
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties)
+    console.log(this.parallax)
   }
 
   disconnectedCallback(...args) {
