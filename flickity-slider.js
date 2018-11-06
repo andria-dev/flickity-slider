@@ -13,6 +13,8 @@ import './node_modules/flickity/dist/flickity.pkgd'
 class FlickitySlider extends LitElement {
   constructor() {
     super();
+
+    // default options
     this.options = {
       prevNextButtons: true,
       pageDots: true
