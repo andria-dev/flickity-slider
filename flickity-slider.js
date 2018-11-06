@@ -38,7 +38,7 @@ class FlickitySlider extends LitElement {
 
     this._flickity = new Flickity(this, this.options);
 
-    if (this.parallax) {
+    if (this.parallax !== false) {
 
       this._flickity.on('scroll', () => {
         // const imgs = 
@@ -50,14 +50,7 @@ class FlickitySlider extends LitElement {
           // img.style.transform = `translateX(${x}px)`;
         });
       });
-    } else {
-      console.log(this.parallax, this)
     }
-  }
-
-  updated(changedProperties) {
-    super.updated(changedProperties)
-    console.log(this.parallax)
   }
 
   disconnectedCallback(...args) {
