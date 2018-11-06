@@ -21,8 +21,15 @@
       flickity-slider {
         margin-bottom: 2rem;
       }
-      img {
-        height: 20rem;
+
+      .carousel-cell {
+        margin-right: 20px;
+        overflow: hidden;
+      }
+
+      .carousel-cell img {
+        display: block;
+        height: 200px;
       }
     </style>
   </custom-style>
@@ -34,26 +41,50 @@
     <p>Content inside of <code>&lt;flickity-slider&gt;</code> must have a height.</p>
     <demo-snippet>
       <template>
-        <flickity-slider .options="${{freeScroll: true}}">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+        <flickity-slider .options="${{freeScroll: true, wrapAround: true}}" parallax>
+          <div class='carousel-cell'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+          </div>
+          <div class='carousel-cell'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+          </div>
+          <div class='carousel-cell'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+          </div>
+          <div class='carousel-cell'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+          </div>
+          <div class='carousel-cell'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+          </div>
+          <div class='carousel-cell'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+          </div>
         </flickity-slider>
       </template>
     </demo-snippet>
     <script type='module'>
       import {render, html} from '/node_modules/lit-html/lit-html.js'
       render(html`
-        <flickity-slider .options="${{freeScroll: true, wrapAround: true}}" parallax>
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+        <flickity-slider .options='${{freeScroll: true, imagesLoaded: true}}' parallax='.carousel-cell > img'>
+          <div class='carousel-cell'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg' alt='orange tree' />
+          </div>
+          <div class='carousel-cell'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg' alt='submerged' />
+          </div>
+          <div class='carousel-cell'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg' alt='look-out' />
+          </div>
+          <div class='carousel-cell'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg' alt='One World Trade' />
+          </div>
+          <div class='carousel-cell'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg' alt='drizzle' />
+          </div>
+          <div class='carousel-cell'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg' alt='cat nose' />
+          </div>
         </flickity-slider>
       `, document.querySelector('demo-snippet'))
     </script>
