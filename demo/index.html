@@ -28,7 +28,6 @@
       }
 
       .carousel-cell img {
-        display: block;
         height: 200px;
       }
     </style>
@@ -38,7 +37,19 @@
 <body>
   <div class="vertical-section-container centered">
     <h3>Basic flickity-slider demo</h3>
-    <p>Content inside of <code>&lt;flickity-slider&gt;</code> must have a height.</p>
+    <p>
+      Content inside of <code>&lt;flickity-slider&gt;</code> must have a height (in this case, the images are given a height of <code>200px</code>).
+      <br />
+      For <code>parallax</code> to work you will need to give <code>.carousel-cell</code> this css:
+    </p>
+    <pre>
+<code>.carousel-cell {</code>
+<code>  overflow: hidden</code>
+<code>}</code>
+    </pre>
+    <p>
+      For the large white gaps you can use <code>margin</code>.
+    </p>
     <demo-snippet>
       <template>
         <flickity-slider .options='${{imagesLoaded: true, percentPosition: false}}' parallax='.carousel-cell > img'>
