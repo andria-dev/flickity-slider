@@ -6,22 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tests</title>
 
+  <script src="../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
   <link rel='stylesheet' href='../../mocha/mocha.css' />
-</head>
-<body>
-  <!-- Render block for tests -->
-  <div id='mocha'></div>
 
   <!-- Setup -->
   <script src='../../chai/chai.js'></script>
   <script src='../../mocha/mocha.js'></script>
+  <script src='../../@polymer/test-fixture/test-fixture.js'></script>
+  <script src='../../@polymer/test-fixture/test-fixture-mocha.js'></script>
   <script>
     mocha.setup('bdd')
     var expect = chai.expect
   </script>
 
-  <!-- Load tests -->
   <script type='module' src='../flickity-slider.js'></script>
+</head>
+<body>
+  <test-fixture id='simple'>
+    <template>
+      <flickity-slider></flickity-slider>
+    </template>
+  </test-fixture>
+
+  <!-- Render block for tests -->
+  <div id='mocha'></div>
+
+  <!-- Load tests -->
   <script src='flickity-slider.test.js'></script>
 
   <!-- Run tests -->
