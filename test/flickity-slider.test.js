@@ -4,7 +4,6 @@ describe('<flickity-slider>', () => {
   describe('Regsitration', () => {
     beforeEach(() => {
       el = fixture('simple')
-      debugger
     })
 
     it('is an element', () => {
@@ -12,9 +11,13 @@ describe('<flickity-slider>', () => {
       expect(el instanceof HTMLElement).to.be.true
     })
 
-    it('flickity is created', () => {
+    it('has an instance of Flickity', () => {
       expect(el._flickity).to.not.be.equal(undefined)
       expect(el._flickity instanceof Flickity).to.be.true
     })
+  })
+
+  describe('Slotted children', () => {
+    
   })
 })

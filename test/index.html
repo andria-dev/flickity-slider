@@ -29,6 +29,15 @@
     </template>
   </test-fixture>
 
+  <test-fixture id='slotted-children'>
+    <template>
+      <img src='https://picsum.photos/300/300/?random' />
+      <img src='https://picsum.photos/300/300/?random' />
+      <img src='https://picsum.photos/300/300/?random' />
+      <img src='https://picsum.photos/300/300/?random' />
+    </template>
+  </test-fixture>
+
   <!-- Render block for tests -->
   <div id='mocha'></div>
 
@@ -37,8 +46,10 @@
 
   <!-- Run tests -->
   <script>
-    mocha.checkLeaks()
-    mocha.run()
+    customElements.whenDefined('flickity-slider').then(() => {
+      mocha.checkLeaks()
+      mocha.run()
+    })
   </script>
 </body>
 </html>
