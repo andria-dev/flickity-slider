@@ -1,3 +1,7 @@
+// useful stuff up here
+const wait = delay => new Promise(resolve => setTimeout(resolve, delay))
+
+// tests
 describe('<flickity-slider>', () => {
   let el
 
@@ -52,6 +56,22 @@ describe('<flickity-slider>', () => {
   describe('Parallax', () => {
     beforeEach(() => {
       el = fixture('parallax')
+    })
+
+    it('translates elements to the right when moving left', () => {
+      const img = el.querySelector('img')
+      const parseTransformX = el => parseInt(
+        getComputedStyle(el)
+          .transform
+          .replace(/.+?translateX\((.+?)px\);/, '$1')
+      )
+      const start = parseTransformX(img)
+
+      el.querySelector('.next').click()
+
+      setTimeout(() => {
+        expect(parseTransformX(img)).to.be.above(start)
+      }, 1000)
     })
   })
 })

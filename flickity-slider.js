@@ -40,24 +40,26 @@ class FlickitySlider extends LitElement {
     setTimeout(() => this._flickity.resize())
 
     if (this.parallax !== false) {
-      this._flickity.on('scroll', () => {
-        const imageList = this.parallax
-          ? this.children[0].children[0].querySelectorAll(this.parallax)
-          : this.children[0].children[0].children
-
-        this._flickity.slides.forEach((slide, index) => {
-          const image = imageList[index];
-          const x = (slide.target + this._flickity.x) * -1/3;
-
-          image.style.transform = `translateX(${x}px)`;
-        });
-      });
+      this._flickity.on('scroll', this.updateParallax.bind(this));
     }
   }
 
   disconnectedCallback(...args) {
     super.disconnectedCallback(...args);
     this._flickity.destroy()
+  }
+
+  updateParallax() {
+    const imageList = this.parallax
+      ? this.children[0].children[0].querySelectorAll(this.parallax)
+      : this.children[0].children[0].children
+
+    this._flickity.slides.forEach((slide, index) => {
+      const image = imageList[index];
+      const x = (slide.target + this._flickity.x) * -1/3;
+
+      image.style.transform = `translateX(${x}px)`;
+    });
   }
 };
 

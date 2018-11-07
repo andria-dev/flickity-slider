@@ -23,6 +23,8 @@
   <script type='module' src='../flickity-slider.js'></script>
 </head>
 <body>
+  <!-- Elements to test -->
+
   <test-fixture id='simple'>
     <template>
       <flickity-slider></flickity-slider>
@@ -50,7 +52,7 @@
       height: 300px;
     }
   </style>
-  <test-fixture>
+  <test-fixture id='parallax'>
     <template>
       <flickity-slider .options='${{imagesLoaded: true, percentPosition: false}}' parallax='.carousel-cell > img'>
         <div class='carousel-cell'>
