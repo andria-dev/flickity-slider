@@ -40,6 +40,41 @@
     </template>
   </test-fixture>
 
+  <style>
+    .carousel-cell {
+      overflow: hidden;
+      margin-right: 20px;
+    }
+
+    .carousel-cell > img {
+      height: 300px;
+    }
+  </style>
+  <test-fixture>
+    <template>
+      <flickity-slider .options='${{imagesLoaded: true, percentPosition: false}}' parallax='.carousel-cell > img'>
+        <div class='carousel-cell'>
+          <img src='https://picsum.photos/300/300/?random' alt='orange tree' />
+        </div>
+        <div class='carousel-cell'>
+          <img src='https://picsum.photos/300/300/?random' alt='submerged' />
+        </div>
+        <div class='carousel-cell'>
+          <img src='https://picsum.photos/300/300/?random' alt='look-out' />
+        </div>
+        <div class='carousel-cell'>
+          <img src='https://picsum.photos/300/300/?random' alt='One World Trade' />
+        </div>
+        <div class='carousel-cell'>
+          <img src='https://picsum.photos/300/300/?random' alt='drizzle' />
+        </div>
+        <div class='carousel-cell'>
+          <img src='https://picsum.photos/300/300/?random' alt='cat nose' />
+        </div>
+      </flickity-slider>
+    </template>
+  </test-fixture>
+
   <!-- Render block for tests -->
   <div id='mocha'></div>
 
