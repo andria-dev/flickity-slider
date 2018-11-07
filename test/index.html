@@ -1,20 +1,33 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tests</title>
 
-    <script src="../node_modules/web-component-tester/browser.js"></script>
-  </head>
-  <body>
-    <script>
-      // Load and run all tests (.html, .js):
-      WCT.loadSuites([
-        'runner.html',
-        'runner.html?wc-shadydom=true',
-        'runner.html?wc-shadydom=true&wc-ce=true',
-        'runner.html?wc-shadydom=true&wc-ce=true&wc-shimcssproperties=true'
-      ]);
-    </script>
-  </body>
+  <link rel='stylesheet' href='../../mocha/mocha.css' />
+</head>
+<body>
+  <!-- Render block for tests -->
+  <div id='mocha'></div>
+
+  <!-- Setup -->
+  <script src='../../chai/chai.js'></script>
+  <script src='../../mocha/mocha.js'></script>
+  <script>
+    mocha.setup('bdd')
+    var expect = chai.expect
+  </script>
+
+  <!-- Load tests -->
+  <script type='module' src='../flickity-slider.js'></script>
+  <script src='flickity-slider.test.js'></script>
+
+  <!-- Run tests -->
+  <script>
+    mocha.checkLeaks()
+    mocha.run()
+  </script>
+</body>
 </html>

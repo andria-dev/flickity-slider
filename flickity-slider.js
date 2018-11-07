@@ -1,5 +1,4 @@
 import { LitElement, html } from '@polymer/lit-element';
-
 import './node_modules/flickity/dist/flickity.pkgd'
 
 /**
