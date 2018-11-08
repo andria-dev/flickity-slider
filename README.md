@@ -25,18 +25,6 @@ $ polymer serve
 
 ## Example
 
-<!--
-```
-<custom-element-demo>
-  <template>
-    <link rel='stylesheet' href='node_modules/flickity/dist/flickity.min.css'>
-    <script type='module' src='flickity-slider.js'></script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-
 ```html
 <flickity-slider>
   <img src='https://picsum.photos/800/500/?random'>
