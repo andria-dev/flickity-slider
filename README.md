@@ -1,34 +1,44 @@
+<!-- [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element) -->
+
 # \<flickity-slider\>
 
 A Polymer (lit-element) wrapper for Flickity.
 
-## Install the Polymer-CLI
+## Running locally
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
+```
+$ npm install
+$ polymer serve
+```
 
-## Viewing Your Element
+[then open "http://127.0.0.1:8081/components/flickity-slider/demo/" in your browser](http://127.0.0.1:8081/components/flickity-slider/demo/)
+
+You can now make changes and they will reflect in the demo.
+
+## Running Tests
 
 ```
 $ polymer serve
 ```
 
-## Running Tests
+[then open "http://127.0.0.1:8081/components/flickity-slider/test/" in your browser](http://127.0.0.1:8081/components/flickity-slider/test/)
 
+<!--
 ```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
-
-
 <custom-element-demo>
   <template>
     <link rel='stylesheet' href='./node_modules/flickity/dist/flickity.min.css'>
     <script type='module' src='./flickity-slider.js'></script>
-    <flickity-slider>
-      <img src='https://picsum.photos/800/500/?random'>
-      <img src='https://picsum.photos/800/500/?random'>
-      <img src='https://picsum.photos/800/500/?random'>
-    </flickity-slider>
+    <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
+```
+-->
+
+```html
+<flickity-slider>
+  <img src='https://picsum.photos/800/500/?random'>
+  <img src='https://picsum.photos/800/500/?random'>
+  <img src='https://picsum.photos/800/500/?random'>
+</flickity-slider>
+```
