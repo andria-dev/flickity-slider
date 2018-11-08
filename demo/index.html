@@ -75,9 +75,14 @@
       </template>
     </demo-snippet>
     <script type='module'>
-      import {render, html} from 'lit-html/lit-html.js'
-      render(html`
-        <flickity-slider .options='${{imagesLoaded: true, percentPosition: false}}' parallax='.carousel-cell > img'>
+      customElements.whenDefined('flickity-slider').then(() => {
+        const slider = document.createElement('flickity-slider')
+        slider.options = {
+          imagesLoaded: true,
+          percentPosition: false
+        }
+        slider.setAttribute('parallax', '.carousel-cell > img')
+        slider.innerHTML = `
           <div class='carousel-cell'>
             <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg' alt='orange tree' />
           </div>
@@ -96,8 +101,12 @@
           <div class='carousel-cell'>
             <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg' alt='cat nose' />
           </div>
-        </flickity-slider>
-      `, document.querySelector('demo-snippet'))
+        `
+
+        const demoContainer = document.querySelector('demo-snippet')
+        demoContainer.innerHTML = ''
+        demoContainer.appendChild(slider)
+      })
     </script>
   </div>
 </body>
