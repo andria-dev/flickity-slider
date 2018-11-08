@@ -1,7 +1,7 @@
 {
   "name": "flickity-slider",
   "description": "A Polymer (lit-element) wrapper for Flickity.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "flickity-slider.js",
   "dependencies": {
     "@polymer/lit-element": "^0.6.2",
