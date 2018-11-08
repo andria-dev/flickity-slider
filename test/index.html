@@ -18,6 +18,11 @@
   <script>
     mocha.setup('bdd')
     var expect = chai.expect
+    var mochaAsync = function(asyncCallback) {
+      return done => {
+        asyncCallback().then(done).catch(done)
+      }
+    }
   </script>
 
   <script type='module' src='../flickity-slider.js'></script>
