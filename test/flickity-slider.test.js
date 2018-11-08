@@ -1,8 +1,7 @@
-// useful stuff up here
-const wait = delay => new Promise(resolve => setTimeout(resolve, delay))
-
 // tests
 describe('<flickity-slider>', () => {
+  // useful stuff up here
+  const wait = delay => new Promise(resolve => setTimeout(resolve, delay))
   let el
 
   describe('Regsitration', () => {
@@ -11,35 +10,47 @@ describe('<flickity-slider>', () => {
     })
 
     it('is an element', () => {
-      expect(el).to.be.instanceof(HTMLElement, 'el is not an instance of HTMLElement')
+      expect(el)
+        .to.be.instanceof(HTMLElement, 'el is not an instance of HTMLElement')
     })
 
     it('has an instance of Flickity', () => {
-      expect(el._flickity).to.be.instanceof(Flickity, 'el._flickity is not an instance of Flickity')
+      expect(el._flickity)
+        .to.be.instanceof(Flickity, 'el._flickity is not an instance of Flickity')
     })
 
     it('has default options', () => {
-      expect(el.options).to.deep.equal({
-        prevNextButtons: true,
-        pageDots: true
-      }, 'default options are incorrect')
+      expect(el.options)
+        .to.deep.equal({
+          prevNextButtons: true,
+          pageDots: true
+        }, 'default options are incorrect')
     })
 
     it('has default parallax', () => {
-      expect(el.parallax).to.be.equal(false, 'parallax should default to false')
+      expect(el.parallax)
+        .to.be.equal(false, 'parallax should default to false')
     })
 
     it('has Flickity generated elements', () => {
-      expect(el.children[0].className).to.be.equal('flickity-viewport')
-      expect(el.children[0].children[0].className).to.be.equal('flickity-slider')
+      expect(el.children[0].className)
+        .to.be.equal('flickity-viewport')
+      expect(el.children[0].children[0].className)
+        .to.be.equal('flickity-slider')
 
-      expect(el.children[1].tagName).to.be.equal('BUTTON')
-      expect(el.children[2].tagName).to.be.equal('BUTTON')
-      expect(el.children[3].tagName).to.be.equal('OL')
+      expect(el.children[1].tagName)
+        .to.be.equal('BUTTON')
+      expect(el.children[2].tagName)
+        .to.be.equal('BUTTON')
+      expect(el.children[3].tagName)
+        .to.be.equal('OL')
 
-      expect(el.children[1].className).to.be.equal('flickity-button flickity-prev-next-button previous')
-      expect(el.children[2].className).to.be.equal('flickity-button flickity-prev-next-button next')
-      expect(el.children[3].className).to.be.equal('flickity-page-dots')
+      expect(el.children[1].className)
+        .to.be.equal('flickity-button flickity-prev-next-button previous')
+      expect(el.children[2].className)
+        .to.be.equal('flickity-button flickity-prev-next-button next')
+      expect(el.children[3].className)
+        .to.be.equal('flickity-page-dots')
     })
   })
 
@@ -49,7 +60,8 @@ describe('<flickity-slider>', () => {
     })
 
     it('has correctly slotted children', () => {
-      expect(el.children[0].children[0].children).to.have.lengthOf(4, 'number of slotted children is not 4')
+      expect(el.children[0].children[0].children)
+        .to.have.lengthOf(4, 'number of slotted children is not 4')
     })
   })
 
@@ -58,20 +70,23 @@ describe('<flickity-slider>', () => {
       el = fixture('parallax')
     })
 
-    it('translates elements to the right when moving left', () => {
+    it('translates elements to the right when moving right', async () => {
+      await wait(800)
+
       const img = el.querySelector('img')
-      const parseTransformX = el => parseInt(
-        getComputedStyle(el)
-          .transform
-          .replace(/.+?translateX\((.+?)px\);/, '$1')
+      const parseTransformX = element => parseInt(
+        element.style.transform.replace(/.*?translateX\((\d+?)px\).*/, '$1')
       )
       const start = parseTransformX(img)
+      console.log(img)
 
-      el.querySelector('.next').click()
+      el.querySelector('.next')
+        .click()
+      console.log(el.querySelector('.next'))
 
-      setTimeout(() => {
-        expect(parseTransformX(img)).to.be.above(start)
-      }, 1000)
+      await wait(1000)
+      expect(parseTransformX(img))
+        .to.be.above(start)
     })
   })
 })
