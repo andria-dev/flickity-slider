@@ -4,7 +4,7 @@ describe("<flickity-slider>", () => {
   const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
   let el;
 
-  describe("Regsitration", () => {
+  describe("Registration", () => {
     beforeEach(() => {
       el = fixture("simple");
     });
@@ -73,27 +73,34 @@ describe("<flickity-slider>", () => {
     });
   });
 
-  describe("Parallax", () => {
+  describe("Parallax", function() {
     beforeEach(() => {
       el = fixture("parallax");
     });
+    this.timeout(3500);
 
-    it("translates elements to the right when moving right", async () => {
-      await wait(800);
+    it(
+      "translates elements to the right when moving right",
+      mochaAsync(async () => {
+        await wait(1000);
+        el._flickity.resize();
 
-      const img = el.querySelector("img");
-      const parseTransformX = element =>
-        parseInt(
-          element.style.transform.replace(/.*?translateX\((\d+?)px\).*/, "$1")
+        const img = el.querySelector("img");
+        const parseTransformX = element =>
+          parseInt(
+            element.style.transform.replace(/.*?translateX\((.+?)px\).*/, "$1")
+          );
+        const start = parseTransformX(img);
+
+        el._flickity.next();
+
+        await wait(2000);
+        const now = parseTransformX(img);
+        expect(now).to.be.above(
+          start,
+          "transformX should be greater after moving to the right"
         );
-      const start = parseTransformX(img);
-      console.log(img);
-
-      el.querySelector(".next").click();
-      console.log(el.querySelector(".next"));
-
-      await wait(1000);
-      expect(parseTransformX(img)).to.be.above(start);
-    });
+      })
+    );
   });
 });
