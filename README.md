@@ -23,6 +23,8 @@ $ polymer serve
 
 [then open "http://127.0.0.1:8081/components/flickity-slider/test/" in your browser](http://127.0.0.1:8081/components/flickity-slider/test/)
 
+## Example
+
 <!--
 ```
 <custom-element-demo>
