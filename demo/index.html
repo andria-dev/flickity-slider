@@ -75,7 +75,7 @@
       </template>
     </demo-snippet>
     <script type='module'>
-      import {render, html} from 'lit-html'
+      import {render, html} from 'lit-html/lit-html.js'
       render(html`
         <flickity-slider .options='${{imagesLoaded: true, percentPosition: false}}' parallax='.carousel-cell > img'>
           <div class='carousel-cell'>
