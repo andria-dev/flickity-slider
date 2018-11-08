@@ -29,8 +29,8 @@ $ polymer serve
 ```
 <custom-element-demo>
   <template>
-    <link rel='stylesheet' href='./node_modules/flickity/dist/flickity.min.css'>
-    <script type='module' src='./flickity-slider.js'></script>
+    <link rel='stylesheet' href='node_modules/flickity/dist/flickity.min.css'>
+    <script type='module' src='flickity-slider.js'></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
