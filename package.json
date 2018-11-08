@@ -1,6 +1,7 @@
 {
   "name": "flickity-slider",
   "description": "A Polymer (lit-element) wrapper for Flickity.",
+  "version": "1.0.0",
   "main": "flickity-slider.js",
   "dependencies": {
     "@polymer/lit-element": "^0.6.2",
@@ -10,8 +11,13 @@
     "@polymer/iron-demo-helpers": "^3.0.2",
     "@polymer/test-fixture": "^4.0.2",
     "@webcomponents/webcomponentsjs": "^2.1.3",
-    "chai": "^4.2.0",
     "lit-html": "^0.12.0",
+    "chai": "^4.2.0",
     "mocha": "^5.2.0"
-  }
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChrisBrownie55/flickity-slider/issues"
+  },
+  "homepage": "https://github.com/ChrisBrownie55/flickity-slider"
 }
