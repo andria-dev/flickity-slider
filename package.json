@@ -4,7 +4,7 @@
   "version": "1.0.7",
   "main": "flickity-slider.js",
   "dependencies": {
-    "@polymer/lit-element": "^0.6.2",
+    "@polymer/lit-element": "^0.6.3",
     "flickity": "^2.1.2"
   },
   "devDependencies": {
